@@ -1,0 +1,122 @@
+{
+
+"cryptoNameUrlPairArray":[
+{
+ "name":"coinDelta",
+ "url":"https://coindelta.com/api/v1/public/getticker/"
+ },{
+   "name":"unocoin",
+   "url":"https://www.unocoin.com/trade?all"
+    },
+    {
+      "name":"zebPay",
+      "url":"https://live.zebapi.com/api/v1/ticker?currencyCode=inr"
+    },
+    {
+    
+    "name":"btcxIndia",
+    "url":"https://api.btcxindia.com/ticker/"  
+    },
+    {
+    
+    "name":"cryptopiaUsd",
+    "url":"https://www.cryptopia.co.nz/api/GetCurrencies"
+    },
+    {
+    
+    "name":"throughbitbtc",
+    "url":"https://www.throughbit.com/tbit_ci/index.php/cryptoprice/type/btc/inr"
+    },
+    {
+    
+    "name":"throughbiteth",
+    "url":"https://www.throughbit.com/tbit_ci/index.php/cryptoprice/type/eth/inr"
+    },
+    {
+    
+    "name":"flitpaybtc",
+    "url":"https://intercom.flitlancecdn.com/welcome/bit_rate"
+    },
+    {
+    
+    "name":"pocketBits",
+    "url":"https://pocketbits.in/Index/getBalanceRates"
+    },{
+    
+    "name":"bitBns",
+    "url":"https://bitbns.com/order/getTickerAll"
+    },
+    {
+      
+      "name":"cryptocompare",
+      "url":"https://min-api.cryptocompare.com/data/pricemulti?fsyms=ETH,BCH,DASH,LTC,XRP,BTC,OMG,IOTA,QTUM,GNT,NEO,DOGE,ARK,BAT,BCC,BTS,CLOAK,CVC,DGB,PAY&tsyms=INR"
+    },
+    
+    {
+    
+    "name":"coinMarketCap",
+    "url":"https://api.coinmarketcap.com/v1/ticker/?convert=INR&limit=6"
+    },
+    {
+    
+    "name":"cryptonator",
+    "url":"https://api.cryptonator.com/api/full/btc-usd"
+    },{
+    
+    "name":"zebPayBtc",
+    "url":"https://www.zebapi.com/api/v1/market/ticker-new/btc/inr"
+    },
+    {
+    
+    "name":"zebPayLtc",
+    "url":"https://www.zebapi.com/api/v1/market/ticker-new/ltc/inr"
+    },
+    {
+    
+    "name":"zebPayBch",
+    "url":"https://www.zebapi.com/api/v1/market/ticker-new/bch/inr"
+    },
+    
+{
+    
+    "name":"zebPayXrp",
+    "url":"https://www.zebapi.com/api/v1/market/ticker-new/xrp/inr"
+    },
+    {
+    
+    "name":"buyUCoin",
+    "url":"https://www.buyucoin.com/api/v1/crypto/"
+    },
+    {
+    
+    "name":"bitStampBtcUsd",
+    "url":"https://www.bitstamp.net/api/v2/ticker/btcusd/"
+    },{
+    
+    "name":"bitStampLtcUsd",
+    "url":"https://www.bitstamp.net/api/v2/ticker/ltcusd/"
+    },{
+    
+    "name":"bitStampXrpUsd",
+    "url":"https://www.bitstamp.net/api/v2/ticker/xrpusd/"
+    },{
+    
+    "name":"bitStampEthUsd",
+    "url":"https://www.bitstamp.net/api/v2/ticker/ethusd/"
+    },{
+      "name":"koinex",
+      "url":"https://koinex.in/api/ticker"
+    },{
+     "name":"coinOme",
+    "url":"https://www.coinome.com/api/v1/ticker.json"
+    },{
+     "name":"mtcxIndiaBtc",
+    "url":"https://api.blockchain.info/ticker?base=BTC"
+    },{
+     "name":"mtcxIndiaBch",
+    "url":"https://api.blockchain.info/ticker?base=BCH"
+    },{
+     "name":"mtcxIndiaEth",
+    "url":"https://api.blockchain.info/ticker?base=ETH"
+    }]
+    }
