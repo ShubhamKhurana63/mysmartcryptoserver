@@ -14,8 +14,9 @@ import org.springframework.web.client.RestTemplate;
 
 import com.mongodb.Mongo;
 import com.mongodb.MongoClient;
+import com.mongodb.MongoCredential;
+import com.mongodb.ServerAddress;
 import com.proxy.cryptoserver.utils.ConfigPuller;
-import com.proxy.cryptoserver.utils.CryptoServerConstants;
 import com.proxy.cryptoserver.utils.UrlConfig;
 
 @Configuration
@@ -39,21 +40,27 @@ public class CryptoServerConfig {
 
 	@Bean
 	public UrlConfig getUrlConfig() {
-
 		UrlConfig urlConfig = ConfigPuller.getConfig();
 		return urlConfig;
 	}
 
 	@Bean
 	public Mongo getMongoClient() {
+		return new MongoClient(new ServerAddress("127.0.0.1", 27017), new ArrayList<MongoCredential>() {
+            /**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
 
-		return new MongoClient(CryptoServerConstants.MONGO_HOST);
+			{
+                add(MongoCredential.createCredential("shubham", "mysmartcrypto", "secretPassword".toCharArray()));
+            }
+        });
 	}
 
 	@Bean
 	public MongoTemplate getMongoTemplate() {
-
-		return new MongoTemplate(getMongoClient(), "SMARTCRYPTO_KOINEX_CACHE");
+		return new MongoTemplate(getMongoClient(), "mysmartcrypto");
 	}
 
 }

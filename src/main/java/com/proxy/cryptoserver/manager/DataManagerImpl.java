@@ -1,7 +1,6 @@
 package com.proxy.cryptoserver.manager;
 
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -14,7 +13,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.util.ObjectUtils;
 import org.springframework.web.client.RestTemplate;
 
-import com.proxy.cryptoserver.HeaderRequestInterceptor;
 import com.proxy.cryptoserver.db.entity.KoinexCacheEntity;
 import com.proxy.cryptoserver.exception.CryptoServerWebException;
 import com.proxy.cryptoserver.repository.DataRepo;
@@ -56,18 +54,14 @@ public class DataManagerImpl implements DataManager {
 					HttpEntity<String> entity = new HttpEntity<String>("parameters", headers);
 					object = restTemplate.exchange(cryptoNameUrlPair.get(0).getUrl(), HttpMethod.GET, entity,
 							Object.class);
-				} 
-				
-				
-				/*else if ("koinex".equals(key.toLowerCase())) {
+				} else if ("koinex".equals(key.toLowerCase())) {
 					List<KoinexCacheEntity> koinexCacheDataList = dataRepo.getData();
 					if (!ObjectUtils.isEmpty(koinexCacheDataList)) {
-						object = koinexCacheDataList.get(koinexCacheDataList.size() - 1);
+						KoinexCacheEntity koinexCacheEntity = koinexCacheDataList.get(koinexCacheDataList.size() - 1);
+						object = koinexCacheEntity.getKoinexData();
 					}
-					
-				}*/ 
-				
-				else {
+
+				} else {
 					object = restTemplate.getForObject(cryptoNameUrlPair.get(0).getUrl(), Object.class);
 				}
 
@@ -95,7 +89,6 @@ public class DataManagerImpl implements DataManager {
 	}
 
 	private void validateCryptoNameUrlPair(List<CryptoNameUrlPair> cryptoNameUrlPair) throws CryptoServerWebException {
-
 		if (ObjectUtils.isEmpty(cryptoNameUrlPair)) {
 			throw new CryptoServerWebException("exchange name not valid");
 		}
