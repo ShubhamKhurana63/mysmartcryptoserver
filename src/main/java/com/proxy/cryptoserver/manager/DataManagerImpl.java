@@ -32,6 +32,10 @@ public class DataManagerImpl implements DataManager {
 
 	@Autowired
 	DataRepo dataRepo;
+	
+	@Autowired
+	HttpEntity<String> httpEntity;
+	
 
 	@Override
 	public CustomResponseWrapper fetchDataForKey(String key) throws CryptoServerWebException {
@@ -48,11 +52,8 @@ public class DataManagerImpl implements DataManager {
 			try {
 				List<String> exceptionCoinList = Arrays.asList(CryptoServerConstants.EXCEPTION_COINS);
 				if (exceptionCoinList.contains(key.toLowerCase())) {
-					HttpHeaders headers = new HttpHeaders();
-					headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
-					headers.add(CryptoServerConstants.USER_AGENT, CryptoServerConstants.USER_AGENT_VALUE);
-					HttpEntity<String> entity = new HttpEntity<String>("parameters", headers);
-					object = restTemplate.exchange(cryptoNameUrlPair.get(0).getUrl(), HttpMethod.GET, entity,
+					
+					object = restTemplate.exchange(cryptoNameUrlPair.get(0).getUrl(), HttpMethod.GET, httpEntity,
 							Object.class);
 				} else if ("koinex".equals(key.toLowerCase())) {
 					List<KoinexCacheEntity> koinexCacheDataList = dataRepo.getData();

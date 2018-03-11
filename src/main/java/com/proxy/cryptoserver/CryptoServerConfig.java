@@ -1,12 +1,15 @@
 package com.proxy.cryptoserver;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
@@ -17,6 +20,7 @@ import com.mongodb.MongoClient;
 import com.mongodb.MongoCredential;
 import com.mongodb.ServerAddress;
 import com.proxy.cryptoserver.utils.ConfigPuller;
+import com.proxy.cryptoserver.utils.CryptoServerConstants;
 import com.proxy.cryptoserver.utils.UrlConfig;
 
 @Configuration
@@ -39,6 +43,15 @@ public class CryptoServerConfig {
 	}
 
 	@Bean
+	public HttpEntity<String> getHttpEntityConfig() {
+		HttpHeaders headers = new HttpHeaders();
+		headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
+		headers.add(CryptoServerConstants.USER_AGENT, CryptoServerConstants.USER_AGENT_VALUE);
+		HttpEntity<String> entity = new HttpEntity<String>("parameters", headers);
+		return entity;
+	}
+
+	@Bean
 	public UrlConfig getUrlConfig() {
 		UrlConfig urlConfig = ConfigPuller.getConfig();
 		return urlConfig;
@@ -47,15 +60,15 @@ public class CryptoServerConfig {
 	@Bean
 	public Mongo getMongoClient() {
 		return new MongoClient(new ServerAddress("127.0.0.1", 27017), new ArrayList<MongoCredential>() {
-            /**
+			/**
 			 * 
 			 */
 			private static final long serialVersionUID = 1L;
 
 			{
-                add(MongoCredential.createCredential("shubham", "mysmartcrypto", "secretPassword".toCharArray()));
-            }
-        });
+				//add(MongoCredential.createCredential("shubham", "mysmartcrypto", "secretPassword".toCharArray()));
+			}
+		});
 	}
 
 	@Bean
