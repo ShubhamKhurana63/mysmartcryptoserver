@@ -11,6 +11,7 @@ public class CryptoServerConstants {
 	public static final String USER_AGENT_VALUE_KOINEX = "Chrome/54.0.2840.99";
 	
 	public static final String MONGO_HOST="localhost";
-
-	
+		
+	public static final String [] EXCHANGES_JOB= {"pocketbits","zebpay"};
+			
 }
