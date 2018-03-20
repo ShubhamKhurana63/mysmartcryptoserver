@@ -85,7 +85,7 @@
     {
     
     "name":"buyUCoin",
-    "url":"https://www.buyucoin.com/api/v1/crypto/"
+    "url":"https://www.buyucoin.com/api/v1.2/currency/markets"
     },
     {
     
